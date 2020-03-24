@@ -1,5 +1,6 @@
 from kbhit import KBHit
 import os
+import random
 
 game0 = "----------"
 game1 = "----------"
@@ -26,6 +27,7 @@ l9 = list(game9)
 bigList = [l0, l1, l2, l3, l4, l5, l6, l7, l8, l9]
 
 player = "O"
+apple = "°"
 yI = 0
 xI = 0
 yJ = 1
@@ -45,8 +47,26 @@ def show_game():
             print(elem, end='')
         print(" ")
 
+def rand_food(posPlayerX, posPlayerY): # A CORRIGER...
+    posAppleInList = bigList[yI]
+    posAppleX = random.randint(0, 9)
+    posAppleY = random.randint(0, 9)
+    i = 0
+
+    if posAppleX != posPlayerX and posAppleY != posPlayerY:
+        while i <= posAppleY:
+            i += 1
+            if i == posAppleY:
+                posAppleInList.insert(posAppleX, apple)
+                del positionList[10]
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(posAppleX, posAppleY)
+        show_game()
+    else:
+        rand_food(posPlayerX, posPlayerY)
+
 os.system('cls' if os.name == 'nt' else 'clear')
-show_game()
+rand_food(positionList, positionList)
 print('Utilisez ZQSD pour vous déplacer.\nAppuyez sur Echap pour quitter.\nAttention, si vous touchez le mur, c\'est perdu !')
 
 while True:
