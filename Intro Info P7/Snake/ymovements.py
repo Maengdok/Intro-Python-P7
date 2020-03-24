@@ -36,14 +36,14 @@ del positionList[10]
 
 kb = KBHit()
 
-def show_Game():
+def show_game():
     for row in bigList:
         for elem in row:
             print(elem, end='')
         print(" ")
 
 os.system('cls' if os.name == 'nt' else 'clear') # Clear terminal
-show_Game()
+show_game()
 print('Appuyez sur Z pour aller vers le haut ou S pour aller vers le bas.\nAttention, si vous touchez un mur, c\'est perdu !')
 
 while True:
@@ -52,12 +52,12 @@ while True:
         c = kb.getch()
         c_ord = ord(c)
         lenGame = len(bigList)
-        
+
         if c_ord ==  122 or c_ord == 90: # Haut = 1
             if i > 0 and k > -1:
                 bigList[i], bigList[k] = bigList[k], bigList[i] # Swap
                 os.system('cls' if os.name == 'nt' else 'clear') # Clear terminal
-                show_Game()
+                show_game()
             else:
                 print("Vous avez perdu !")
                 break
@@ -69,7 +69,7 @@ while True:
             if j <= lenGame - 1:
                 bigList[i], bigList[j] = bigList[j], bigList[i] # Swap
                 os.system('cls' if os.name == 'nt' else 'clear') # Clear terminal
-                show_Game()
+                show_game()
 
                 i += 1
                 j += 1
