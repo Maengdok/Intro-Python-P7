@@ -34,6 +34,7 @@ yJ = 1
 xJ = 1
 yK = -1
 xK = -1
+foodEaten = 0
 
 positionList = bigList[yI]
 positionList.insert(0, player)
@@ -47,27 +48,23 @@ def show_game():
             print(elem, end='')
         print(" ")
 
-def rand_food(posPlayerX, posPlayerY): # A CORRIGER...
-    posAppleInList = bigList[yI]
-    posAppleX = random.randint(0, 9)
-    posAppleY = random.randint(0, 9)
-    i = 0
+def food(posPlayerX, posPlayerY):
+    global posAppleX
+    global posAppleY
+    posAppleX = random.randint(0, 9) # Position horizontale
+    posAppleY = random.randint(0, 9) # Position verticale
 
-    if posAppleX != posPlayerX and posAppleY != posPlayerY:
-        while i <= posAppleY:
-            i += 1
-            if i == posAppleY:
-                posAppleInList.insert(posAppleX, apple)
-                del positionList[10]
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(posAppleX, posAppleY)
+    if posAppleX != posPlayerX or posAppleY != posPlayerY:
+        bigList[posAppleY][posAppleX] = apple
         show_game()
     else:
-        rand_food(posPlayerX, posPlayerY)
+        return food(xI, yI)
 
 os.system('cls' if os.name == 'nt' else 'clear')
-rand_food(positionList, positionList)
+food(xI, yI)
+#show_game()
 print('Utilisez ZQSD pour vous déplacer.\nAppuyez sur Echap pour quitter.\nAttention, si vous touchez le mur, c\'est perdu !')
+
 
 while True:
 
@@ -75,12 +72,21 @@ while True:
         c = kb.getch()
         c_ord = ord(c)
         lenGame = len(bigList)
+        newChar = "-"
+
+        print("Nourriture mangée : {}".format(foodEaten))
+        print("yI = {}\n posAppleY = {}\n xI = {}\n posAppleX = {}".format(yI, posAppleY, xI, posAppleX))
 
         if c_ord ==  122 or c_ord == 90: # Haut = 1
             if yI > 0 and yK > -1:
-                bigList[yI], bigList[yK] = bigList[yK], bigList[yI] # Swap
+                bigList[yI][xI], bigList[yK][xI] = bigList[yK][xI], bigList[yI][xI] # Swap
                 os.system('cls' if os.name == 'nt' else 'clear') # Clear terminal
-                show_game()
+                if bigList[yI][xI] == bigList[posAppleY][posAppleX]: # A corriger...
+                    foodEaten += 1
+                    bigList[yI][xI] = newChar # Ne remplace pas le char au bon moment...
+                    food(xI, yI)
+                else:
+                    show_game()
             else:
                 print("Vous avez perdu !")
                 break
@@ -90,13 +96,18 @@ while True:
             yK -= 1
         if c_ord == 115 or c_ord == 83: # Bas = 2
             if yJ <= lenGame - 1:
-                bigList[yI], bigList[yJ] = bigList[yJ], bigList[yI] # Swap
+                bigList[yI][xI], bigList[yJ][xI] = bigList[yJ][xI], bigList[yI][xI] # Swap
                 os.system('cls' if os.name == 'nt' else 'clear') # Clear terminal
-                show_game()
 
                 yI += 1
                 yJ += 1
                 yK += 1
+                if bigList[yI][xI] == bigList[posAppleY][posAppleX]:
+                    foodEaten += 1
+                    bigList[yI-1][xI] = newChar
+                    food(xI, yI)
+                else:
+                    show_game()
             else:
                 print("Vous avez perdu !")
                 break
@@ -104,7 +115,12 @@ while True:
             if xI > 0 and xK > -1:
                 bigList[yI][xI], bigList[yI][xK] = bigList[yI][xK], bigList[yI][xI]
                 os.system('cls' if os.name == 'nt' else 'clear')
-                show_game()
+                if bigList[yI][xI] == bigList[posAppleY][posAppleX]: # A corriger...
+                    foodEaten += 1
+                    bigList[yI][xI+1] = newChar # Ne remplace pas le char au bon moment...
+                    food(xI, yI)
+                else:
+                    show_game()
             else:
                 print("Vous avez perdu !")
                 break
@@ -116,11 +132,16 @@ while True:
             if xJ <= lenGame - 1:
                 bigList[yI][xI], bigList[yI][xJ] = bigList[yI][xJ], bigList[yI][xI]
                 os.system('cls' if os.name == 'nt' else 'clear')
-                show_game()
 
                 xI += 1
                 xJ += 1
                 xK += 1
+                if bigList[yI][xI] == bigList[posAppleY][posAppleX]:
+                    foodEaten += 1
+                    bigList[yI][xI-1] = newChar
+                    food(xI, yI)
+                else:
+                    show_game()
             else:
                 print("Vous avez perdu !")
                 break
