@@ -27,6 +27,13 @@ Je cherche à trier en ordre croissant la liste d'entiers suivante : [54, 25, 10
 7. Coder un programme qui génère une liste d'entiers aléatoires de taille donnée.
   voir rand_bubble_sorting.py
 
+8. Comment chronométrer l'exécution d'un programme ?
+  import time
+
+  t = time.process_time_ns() # compte en nanoseconds
+  action()
+  countTime = (time.process_time_ns() - t) / (10**6) # ((time_after_action) - time_before_action) / (10**6). => conversion nanosecondes en millisecondes : time / (10**6)
+
 9. Quelle taille doit faire une liste pour que l'exécution du tri bulle dure approximativement 1 seconde ?
   Il faut une liste de taille 3425. Voir rand_bubble_sorting.py avec comme 3425 comme input
 
