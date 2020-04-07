@@ -1,3 +1,5 @@
+Début: 14:00
+
 Je cherche à trier en ordre croissant la liste d'entiers suivante : [54, 25, 107, 12, 15, 34, 25, 68]
 
 1. Quel est la liste triée dans l'ordre croissant ? Je vous demande juste la réponse, pas un programme.
@@ -47,3 +49,6 @@ Je cherche à trier en ordre croissant la liste d'entiers suivante : [54, 25, 10
   Timsort: La complexité en espace dans le pire des cas est également linéaire en la taille de l'entrée. https://fr.wikipedia.org/wiki/Timsort
 
 15. Coder l'algorithme de tri qui est utilisé par la fonction de la question 2.
+  Code prit sur: https://guide.freecodecamp.org/algorithms/sorting-algorithms/timsort/
+
+Fin: 17:40 (probabilité de modifications si j'ai du temps entre mes autres cours et les dossiers demandés par mon cursus universitaire, que je doit rendre en priorité.)
