@@ -1,0 +1,32 @@
+Je cherche à trier en ordre croissant la liste d'entiers suivante : [54, 25, 107, 12, 15, 34, 25, 68]
+
+1. Quel est la liste triée dans l'ordre croissant ? Je vous demande juste la réponse, pas un programme.
+  [12, 15, 25, 25, 34, 54, 68, 107]
+
+2. Comment pourriez-vous trier cette liste en python ? Donner un lien vers la référence officielle d'une fonction python permettant de trier une liste, et fournir un exemple de code python utilisant cette fonction.
+  a = [54, 25, 107, 12, 15, 34, 25, 68]
+  a.sort() #source https://docs.python.org/3/howto/sorting.html
+  print(a)
+
+3. Rechercher des informations sur le "tri bulle". Décrivez-moi avec vos mots comment fonctionne le tri bulle. Donnez-moi les sources qui vous ont permis de comprendre ce qu'est le tri bulle (exemples : vidéos youtube, blogposts, tutoriel, cours, encyclopédie en ligne, etc).
+  Le Tri à bulle est un système de tri qui réalise plusieurs passages dans la liste donnée tout en comparant les éléments elem[0] et elem[1] pour déterminer si elem[0] est plus petit ou plus grand que elem[1].
+  Si elem[0] est plus grand qu'elem[1] alors ces deux éléments sont échangés. Ainsi elem[0] prend la valeur d'elem[1] et elem[1] prend la valeur d'elem[0]. Une fois cette action effectuée, le programme va comparer les éléments suivants de la même façon que précédemment.
+  #sources: https://waytolearnx.com/2019/04/tri-a-bulle-en-python.html / https://www.stechies.com/bubble-sort-python/ / https://www.youtube.com/watch?v=Cq7SMsQBEUw
+
+4. Expliquer la suite des étapes utilisées pour trier la liste d'entiers [54, 25, 107, 12, 15, 34, 25, 68] avec un tri bulle. Je vous donne le début :
+  voir bubble_sorting.py
+
+5. Coder un programme qui réalise un tri bulle sur une liste. Vous pouvez vous inspirer d'un code trouvé sur internet mais dans ce cas je vous incite à bien le comprendre.
+  voir bubble_sorting.py
+
+6. Modifier votre programme pour afficher à l'écran le résultat de la question 4.
+  voir bubble_sorting.py
+
+7. Coder un programme qui génère une liste d'entiers aléatoires de taille donnée.
+  voir rand_bubble_sorting.py
+
+9. Quelle taille doit faire une liste pour que l'exécution du tri bulle dure approximativement 1 seconde ?
+  Il faut une liste de taille 3425. Voir rand_bubble_sorting.py avec comme 3425 comme input
+
+10. Pour cette même taille, combien de temps prends la fonction que vous avez utilisée à la question 2 ?
+  Autant de temps que ma fonction utilisée. Voir rand_bubble_sorting.py
