@@ -30,3 +30,20 @@ Je cherche à trier en ordre croissant la liste d'entiers suivante : [54, 25, 10
 
 10. Pour cette même taille, combien de temps prends la fonction que vous avez utilisée à la question 2 ?
   Autant de temps que ma fonction utilisée. Voir rand_bubble_sorting.py
+
+11. A la lumière de vos réponses aux questions 9 et 10, peut-on dire que le tri bulle est rapide ?
+  Le tri à bulle est convenable pour de petites tailles de listes. Cependant il reste l'un des algorithmes de tri les plus lent.
+
+12. Quel est le nom de l'algorithme de tri utilisé par la fonction de la question 2 ?
+  Timsort https://en.wikipedia.org/wiki/Timsort
+
+13. Expliquer avec vos mots ce qu'est la "complexité en temps" d'un algorithme ? N'oubliez pas de m'indiquer les sources que vous avez consultées. Quelle est la complexité en temps du tri bulle ? Et celle de la fonction de la question 2 ?
+  La complexité de temps c'est le nombre d'étapes de calcul comptées dans un algorithme. https://fr.wikipedia.org/wiki/Complexit%C3%A9_en_temps
+  Tri à bulle : Pour le tri non optimisé, la complexité en temps est de Θ(n2), avec n la taille du tableau. https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles
+  Timsort: a une complexité en temps dans le pire des cas en {\displaystyle O(N\ln(N))}O(N\ln(N)). Dans le meilleur cas, qui survient par exemple si la liste est déjà triée, la complexité est linéaire. https://fr.wikipedia.org/wiki/Timsort
+
+14. Il existe une autre notion de "complexité" pour une algorithme : la "complexité en espace" aussi appelée "complexité en mémoire". Quelles sont les complexités en espace des 2 algorithmes étudiés ?
+  Tri à bulle: En moyenne, la complexité est aussi Θ(n2). En effet, le nombre d'échanges de paires d'éléments successifs est égal au nombre d'inversions de la permutation, c'est-à-dire de couples (i,j) tels que i < j et T(i) > T(j). Ce nombre est indépendant de la manière d'organiser les échanges. Lorsque l'ordre initial des éléments du tableau est aléatoire, il est en moyenne égal à n(n-1)/4 3. https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles
+  Timsort: La complexité en espace dans le pire des cas est également linéaire en la taille de l'entrée. https://fr.wikipedia.org/wiki/Timsort
+
+15. Coder l'algorithme de tri qui est utilisé par la fonction de la question 2.
